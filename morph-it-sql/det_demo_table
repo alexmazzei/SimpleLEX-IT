@@ -1,0 +1,242 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 9.5.0
+-- Dumped by pg_dump version 9.5.0
+
+-- Started on 2016-07-25 12:19:28 CEST
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- TOC entry 191 (class 1259 OID 22111)
+-- Name: det_demo_table; Type: TABLE; Schema: public; Owner: mazzei
+--
+
+CREATE TABLE det_demo_table (
+    id_word integer NOT NULL,
+    word character varying(50),
+    id_lemma integer,
+    number character(1),
+    gender character(1),
+    CONSTRAINT det_demo_table_gender_check CHECK ((gender = ANY (ARRAY['f'::bpchar, 'm'::bpchar]))),
+    CONSTRAINT det_demo_table_number_check CHECK ((number = ANY (ARRAY['s'::bpchar, 'p'::bpchar]))),
+    CONSTRAINT det_demo_table_word_check CHECK (((word)::text <> ''::text))
+);
+
+
+ALTER TABLE det_demo_table OWNER TO mazzei;
+
+--
+-- TOC entry 190 (class 1259 OID 22109)
+-- Name: det_demo_table_id_word_seq; Type: SEQUENCE; Schema: public; Owner: mazzei
+--
+
+CREATE SEQUENCE det_demo_table_id_word_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE det_demo_table_id_word_seq OWNER TO mazzei;
+
+--
+-- TOC entry 2460 (class 0 OID 0)
+-- Dependencies: 190
+-- Name: det_demo_table_id_word_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: mazzei
+--
+
+ALTER SEQUENCE det_demo_table_id_word_seq OWNED BY det_demo_table.id_word;
+
+
+--
+-- TOC entry 2330 (class 2604 OID 22114)
+-- Name: id_word; Type: DEFAULT; Schema: public; Owner: mazzei
+--
+
+ALTER TABLE ONLY det_demo_table ALTER COLUMN id_word SET DEFAULT nextval('det_demo_table_id_word_seq'::regclass);
+
+
+--
+-- TOC entry 2455 (class 0 OID 22111)
+-- Dependencies: 191
+-- Data for Name: det_demo_table; Type: TABLE DATA; Schema: public; Owner: mazzei
+--
+
+COPY det_demo_table (id_word, word, id_lemma, number, gender) FROM stdin;
+1	alcun	930	s	m
+2	alcuna	930	s	f
+3	alcune	930	p	f
+4	alcuni	930	p	m
+5	altra	1148	s	f
+6	altre	1148	p	f
+7	altri	1148	p	m
+8	altro	1148	s	m
+9	altrui	1160	p	f
+10	altrui	1160	s	f
+11	altrui	1160	p	m
+12	altrui	1160	s	m
+13	che	6116	p	f
+14	che	6116	s	f
+15	che	6116	p	m
+16	che	6116	s	m
+17	ciascun	6259	s	m
+18	ciascuna	6259	s	f
+19	ke	6116	p	f
+20	ke	6116	s	f
+21	ke	6116	p	m
+22	ke	6116	s	m
+23	loro	17790	p	f
+24	loro	17790	s	f
+25	loro	17790	p	m
+26	loro	17790	s	m
+27	mia	19040	s	f
+28	mie	19040	p	f
+29	miei	19040	p	m
+30	mio	19040	s	m
+31	molta	19461	s	f
+32	molte	19461	p	f
+33	molti	19461	p	m
+34	molto	19461	s	m
+35	nessun	20179	s	m
+36	nessun'	20179	s	f
+37	nessuna	20179	s	f
+38	nostra	20392	s	f
+39	nostre	20392	p	f
+40	nostri	20392	p	m
+41	nostro	20392	s	m
+42	ogni	20716	s	f
+43	ogni	20716	s	m
+44	parecchi	21695	p	m
+45	parecchia	21695	s	f
+46	parecchie	21695	p	f
+47	parecchio	21695	s	m
+48	poca	22929	s	f
+49	poche	22929	p	f
+50	pochi	22929	p	m
+51	poco	22929	s	m
+52	propri	24134	p	m
+53	propria	24134	s	f
+54	proprie	24134	p	f
+55	proprio	24134	s	m
+56	qualche	24531	s	f
+57	qualche	24531	s	m
+58	quale	24536	s	f
+59	quale	24536	s	m
+60	quali	24536	s	f
+61	quali	24536	s	m
+62	qualsiasi	24551	s	f
+63	qualsiasi	24551	s	m
+64	qualunque	24555	s	f
+65	qualunque	24555	p	m
+66	qualunque	24555	s	m
+67	quanta	24562	s	f
+68	quante	24562	p	f
+69	quanti	24562	p	m
+70	quanto	24562	s	f
+71	quegli	24688	p	m
+72	quei	24688	p	m
+73	quel	24688	s	m
+74	quell'	24688	s	f
+75	quell'	24688	s	m
+76	quella	24688	s	f
+77	quelle	24688	p	f
+78	quelli	24688	p	m
+79	quello	24688	s	m
+80	quest'	24702	s	f
+81	quest'	24702	s	m
+82	questa	24702	s	f
+83	queste	24702	p	f
+84	questi	24702	p	m
+85	questo	24702	s	m
+86	sua	31044	s	f
+87	sue	31044	p	f
+88	suo	31044	s	m
+89	suoi	31044	p	m
+90	tal	31615	s	f
+91	tal	31615	s	m
+92	tale	31615	s	f
+93	tale	31615	s	m
+94	tali	31615	p	f
+95	tali	31615	p	m
+96	talune	31633	p	f
+97	tanta	31667	s	f
+98	tante	31667	p	f
+99	tanti	31667	p	m
+100	tanto	31667	s	m
+101	troppa	33052	s	f
+102	troppe	33052	p	f
+103	troppi	33052	p	m
+104	troppo	33052	s	m
+105	tua	33090	s	f
+106	tue	33090	p	f
+107	tuo	33090	s	m
+108	tuoi	33090	p	m
+109	tutta	33193	s	f
+110	tutte	33193	p	f
+111	tutti	33193	p	m
+112	tutto	33193	s	m
+113	vostra	34518	s	f
+114	vostre	34518	p	f
+115	vostri	34518	p	m
+116	vostro	34518	s	m
+\.
+
+
+--
+-- TOC entry 2461 (class 0 OID 0)
+-- Dependencies: 190
+-- Name: det_demo_table_id_word_seq; Type: SEQUENCE SET; Schema: public; Owner: mazzei
+--
+
+SELECT pg_catalog.setval('det_demo_table_id_word_seq', 116, true);
+
+
+--
+-- TOC entry 2335 (class 2606 OID 22119)
+-- Name: det_demo_table_pkey; Type: CONSTRAINT; Schema: public; Owner: mazzei
+--
+
+ALTER TABLE ONLY det_demo_table
+    ADD CONSTRAINT det_demo_table_pkey PRIMARY KEY (id_word);
+
+
+--
+-- TOC entry 2337 (class 2606 OID 22121)
+-- Name: det_demo_table_word_id_lemma_number_gender_key; Type: CONSTRAINT; Schema: public; Owner: mazzei
+--
+
+ALTER TABLE ONLY det_demo_table
+    ADD CONSTRAINT det_demo_table_word_id_lemma_number_gender_key UNIQUE (word, id_lemma, number, gender);
+
+
+--
+-- TOC entry 2338 (class 2606 OID 22122)
+-- Name: det_demo_table_id_lemma_fkey; Type: FK CONSTRAINT; Schema: public; Owner: mazzei
+--
+
+ALTER TABLE ONLY det_demo_table
+    ADD CONSTRAINT det_demo_table_id_lemma_fkey FOREIGN KEY (id_lemma) REFERENCES lemmata(id_lemma);
+
+
+-- Completed on 2016-07-25 12:19:28 CEST
+
+--
+-- PostgreSQL database dump complete
+--
+
