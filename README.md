@@ -14,10 +14,10 @@ been created by using different lexical resources for Italian, i.e.:
     base. Editori Riuniti.
 
   - Two entries of wikipedia:
-    + https://it.wikipedia.org/wiki/Verbi_ irregolari_italiani
-    + https://it.wikipedia.org/wiki/Verbi_ incoativi
+    + https://it.wikipedia.org/wiki/Verbi_irregolari_italiani
+    + https://it.wikipedia.org/wiki/Verbi_incoativi
 
-  - The Italian section of the Universal Dependencies treebank:
+  - The Italian section of the Universal Dependencies treebank (v. 1.2):
     http://universaldependencies.org/it/overview/introduction.html    
     Joakim Nivre, Marie-Catherine de Marneffe, Filip Ginter, Yoav
     Goldberg, Jan Hajic, Christopher D. Manning, Ryan McDonald, Slav
@@ -28,3 +28,10 @@ been created by using different lexical resources for Italian, i.e.:
 SimpleLEX-IT is provided as one single XML file. Moreover, in the
 project one can find the SQL tables created to merges the various
 lexical resources.
+
+The licence for SimpleNLG-IT is: Creative-Commons BY-NC-SA 3.0
+(Attribution-ShareAlike 3.0 Attribution-NonCommercial-ShareAlike 3.0
+Unported) https://creativecommons.org/licenses/by-nc-sa/3.0/
+
+For the various derived lexical resources remain their original
+license.
